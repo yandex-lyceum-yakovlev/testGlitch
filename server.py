@@ -3,13 +3,16 @@ import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-
+load_dotenv()
 
 @app.route('/index')
 def index():
-    SECRET = os.getenv("SECRET")
-    return f"Hello index {SECRET}"
+    return f"Hello index"
 
+@app.route('/secret')
+def secret():
+    SECRET = os.getenv("SECRET")
+    return f"Secret = {SECRET}"
 
 @app.route('/')
 def root():

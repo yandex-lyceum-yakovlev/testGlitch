@@ -1,11 +1,14 @@
 from flask import Flask
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
 
 @app.route('/index')
 def index():
-    return "Hello index"
+    SECRET = os.getenv("SECRET")
+    return f"Hello index {SECRET}"
 
 
 @app.route('/')
